@@ -1,12 +1,12 @@
-import express from 'events';
-import todoController from '../controllers/todocontroller';
+import * as express from "express";
+import { createTodo, getTodos, getTodoById, updateTodo, deleteTodo } from "../controllers/todoController";
 
 const router = express.Router();
 
-router.get('/', todoController.getAllTodos);
-router.get('/:id', todoController.getTodoById);
-router.post('/', todoController.createTodo);
-router.put('/:id', todoController.updateTodo);
-router.delete('/:id', todoController.deleteTodo);
+router.post("/", createTodo);
+router.get("/", getTodos);
+router.get("/:id", getTodoById); // Neu hinzugefügt
+router.put("/:id", updateTodo); // Neu hinzugefügt
+router.delete("/:id", deleteTodo); // Neu hinzugefügt
 
 export default router;
